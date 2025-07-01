@@ -1,0 +1,53 @@
+.client-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 18px 16px 18px;
+  box-shadow: 0 1px 4px #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 200px;
+  max-width: 240px;
+}
+
+.client-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 9px;
+}
+
+.client-info {
+  text-align: center;
+  font-size: 1rem;
+  color: #232323;
+  margin-bottom: 16px;
+
+  div {
+    margin-bottom: 5px;
+  }
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 84px;
+
+  .icon {
+    font-size: 19px;
+    color: #232323;
+    cursor: pointer;
+    transition: color 0.2s;
+    &:hover {
+      color: #f37021;
+    }
+  }
+  .delete {
+    color: #ff2d2d;
+    &:hover {
+      color: #c80000;
+    }
+  }
+}

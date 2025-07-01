@@ -1,0 +1,47 @@
+.topbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  border-bottom: 1.5px solid #ececec;
+  z-index: 1001;
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #f37021;
+    margin-left: 14px;
+  }
+  .menu-btn {
+    background: none;
+    border: none;
+    color: #232323;
+    cursor: pointer;
+    font-size: 22px;
+    margin-right: 12px;
+  }
+  nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    a {
+      color: #232323;
+      text-decoration: none;
+      font-weight: 500;
+      &.active, &:hover {
+        color: #f37021;
+        text-decoration: underline;
+      }
+    }
+  }
+  .username {
+    font-size: 1rem;
+    margin-right: 64px;
+    strong { font-weight: bold; }
+  }
+}

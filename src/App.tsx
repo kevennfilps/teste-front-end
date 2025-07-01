@@ -1,7 +1,12 @@
-import LoginScreen from './pages/login/LoginScreen'
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/routes";
 
 function App() {
-  return <LoginScreen />
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
