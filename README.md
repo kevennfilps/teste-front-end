@@ -48,4 +48,13 @@ cd teste-front-end
 npm install
 npm run dev
 
+```
 - O projeto estará disponível em: http://localhost:5173/
+
+# Build da imagem
+docker build -t teste-front-end .
+
+# Rodar o container na porta 8080
+docker run -p 8080:80 meu-front
+
+- Acesse em http://localhost:8080
