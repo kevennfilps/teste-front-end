@@ -2,11 +2,7 @@ import { FaPlus, FaPen, FaTrash } from "react-icons/fa";
 import type { Client } from "../../services/clientService";
 import "./ClientCard.scss";
 
-interface Props {
-  client: Client;
-}
-
-export default function ClientCard({ client }: Props) {
+export default function ClientCard({ client, onEdit, onDelete }: { client: Client, onEdit: () => void, onDelete: () => void }) {
   if (!client) return null;
   return (
     <div className="client-card">
@@ -17,8 +13,8 @@ export default function ClientCard({ client }: Props) {
       </div>
       <div className="card-actions">
         <FaPlus className="icon" />
-        <FaPen className="icon" />
-        <FaTrash className="icon delete" />
+        <FaPen className="icon" onClick={onEdit} />
+        <FaTrash className="icon delete" onClick={onDelete} />
       </div>
     </div>
   );

@@ -1,0 +1,55 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 10px;
+  min-width: 340px;
+  padding: 26px 28px 22px 28px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 1.09rem;
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+}
+
+.modal-message {
+  margin: 16px 0 18px 0;
+  font-size: 1.08rem;
+}
+
+.delete-btn {
+  width: 100%;
+  background: #f37021;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 0;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 0;
+  &:hover {
+    background: #c80000;
+  }
+}

@@ -1,21 +1,31 @@
-import { useState } from "react";
-import { createClient } from "../../services/clientService";
+import { useState, useEffect } from "react";
+import { updateClient, type Client } from "../../services/clientService";
 import "./ClientModal.scss";
 
-interface CreateClientModalProps {
+interface EditClientModalProps {
   open: boolean;
   onClose: () => void;
   onSuccess: () => void;
+  client: Client | null;
 }
 
-export default function CreateClientModal({ open, onClose, onSuccess }: CreateClientModalProps) {
+export default function EditClientModal({ open, onClose, onSuccess, client }: EditClientModalProps) {
   const [name, setName] = useState("");
   const [salary, setSalary] = useState("");
   const [companyValuation, setCompanyValuation] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  if (!open) return null;
+  useEffect(() => {
+    if (client && open) {
+      setName(client.name);
+      setSalary(String(client.salary));
+      setCompanyValuation(String(client.companyValuation));
+      setError(null);
+    }
+  }, [client, open]);
+
+  if (!open || !client) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,21 +34,17 @@ export default function CreateClientModal({ open, onClose, onSuccess }: CreateCl
       setError("Preencha todos os campos!");
       return;
     }
-
     setLoading(true);
     try {
-      await createClient({
+      await updateClient(client.id, {
         name,
         salary: Number(salary),
         companyValuation: Number(companyValuation),
       });
-      setName("");
-      setSalary("");
-      setCompanyValuation("");
       onSuccess();
       onClose();
     } catch (err) {
-      setError("Erro ao cadastrar cliente.");
+      setError("Erro ao editar cliente.");
     } finally {
       setLoading(false);
     }
@@ -48,18 +54,18 @@ export default function CreateClientModal({ open, onClose, onSuccess }: CreateCl
     <div className="modal-backdrop">
       <div className="modal">
         <div className="modal-header">
-          <b>Criar cliente:</b>
+          <b>Editar cliente:</b>
           <button className="close-btn" onClick={onClose}>&times;</button>
         </div>
         <form className="modal-form" onSubmit={handleSubmit}>
           <input
-            placeholder="Digite o nome:"
+            placeholder="Nome"
             value={name}
             onChange={e => setName(e.target.value)}
             disabled={loading}
           />
           <input
-            placeholder="Digite o salário:"
+            placeholder="Salário"
             type="number"
             min="0"
             value={salary}
@@ -67,7 +73,7 @@ export default function CreateClientModal({ open, onClose, onSuccess }: CreateCl
             disabled={loading}
           />
           <input
-            placeholder="Digite o valor da empresa:"
+            placeholder="Valor da empresa"
             type="number"
             min="0"
             value={companyValuation}
@@ -76,7 +82,7 @@ export default function CreateClientModal({ open, onClose, onSuccess }: CreateCl
           />
           {error && <div className="modal-error">{error}</div>}
           <button type="submit" disabled={loading}>
-            {loading ? "Cadastrando..." : "Criar cliente"}
+            {loading ? "Salvando..." : "Editar cliente"}
           </button>
         </form>
       </div>

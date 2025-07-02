@@ -32,3 +32,16 @@ export const createClient = async (client: CreateClientDTO) => {
   const { data } = await api.post("/users", client);
   return data;
 };
+
+export const updateClient = async (
+  id: number,
+  client: { name: string; salary: number; companyValuation: number }
+) => {
+  const { data } = await api.patch(`/users/${id}`, client);
+  return data;
+};
+
+export const deleteClient = async (id: number) => {
+  await api.delete(`/users/${id}`);
+};
+
