@@ -1,49 +1,96 @@
-.sidebar-drawer {
+.sidebar {
   position: fixed;
-  top: 0;
   left: 0;
-  width: 220px;
+  top: 0;
+  width: 0;
   height: 100vh;
-  background: #232323;
-  color: #fff;
-  z-index: 1000;
-  transform: translateX(-100%);
-  transition: transform 0.2s;
+  background: #fff;
+  color: #232323;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+  z-index: 1100;
+  transition: width 0.2s;
   display: flex;
   flex-direction: column;
-  padding-top: 32px;
+  align-items: flex-start;
+  padding-top: 64px; // para alinhar com topbar fixa
 
   &.open {
-    transform: translateX(0);
+    width: 220px;
+    min-width: 220px;
+    padding-left: 0;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.03);
+    z-index: 12344;
+  }
+
+  .sidebar-logo-block {
+    width: 100%;
+    height: 86px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 12px;
+    margin-top: -64px;
+  }
+
+  .sidebar-logo-img {
+    height: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 
   .close-btn {
     position: absolute;
-    top: 14px;
-    right: 12px;
-    background: none;
-    border: none;
+    top: 18px;
+    right: 10px;
+    z-index: 1200;
+    background: #232323;
     color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 9px;
     cursor: pointer;
-    font-size: 22px;
-    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.11);
+    transition: background 0.16s;
+    &:hover {
+      background: #f37021;
+      color: #fff;
+    }
+  }
+
+  .sidebar-header {
+    width: 100%;
+    text-align: left;
+    margin: 30px 0 30px 28px;
+    .logo {
+      font-size: 1.7rem;
+      color: #f37021;
+      font-weight: bold;
+    }
   }
 
   nav ul {
     list-style: none;
     padding: 0;
-    margin-top: 36px;
+    margin-top: 8px;
+    width: 100%;
     li {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 13px 0 13px 22px;
-      font-size: 1.05rem;
+      gap: 13px;
+      padding: 14px 0 14px 28px;
+      font-size: 1.1rem;
       cursor: pointer;
-      color: #fff;
-      border-radius: 6px;
+      color: #232323;
+      border-radius: 6px 0 0 6px;
       &.active, &:hover {
-        background: #353535;
+        background: #f3f3f3;
         color: #f37021;
       }
       span {
@@ -51,14 +98,5 @@
         white-space: nowrap;
       }
     }
-  }
-
-  .backdrop {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.2);
-    z-index: 999;
   }
 }

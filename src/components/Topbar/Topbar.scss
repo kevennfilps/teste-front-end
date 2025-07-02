@@ -1,28 +1,30 @@
 .topbar {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  z-index: 1101;
   background: #fff;
+  border-bottom: 1.5px solid #ececec;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  border-bottom: 1.5px solid #ececec;
-  z-index: 1001;
+  padding: 0 28px;
 
-  .logo {
-    font-weight: bold;
-    font-size: 1.6rem;
-    color: #f37021;
-    margin-left: 14px;
-  }
   .menu-btn {
     background: none;
     border: none;
     color: #232323;
     cursor: pointer;
     font-size: 22px;
-    margin-right: 12px;
+    margin-right: 18px;
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #f37021;
+    margin-right: 44px;
   }
   nav {
     flex: 1;
@@ -38,10 +40,21 @@
         text-decoration: underline;
       }
     }
-  }
-  .username {
-    font-size: 1rem;
-    margin-right: 64px;
+    }
+  
+    nav .active {
+      color: #f37021;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+  
+    nav span {
+      font-size: 1rem;
+    }
+  
+    .username {
+      font-size: 1rem;
     strong { font-weight: bold; }
+    margin-right: 108px;
   }
 }
