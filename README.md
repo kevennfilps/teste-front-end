@@ -1,69 +1,51 @@
-# React + TypeScript + Vite
+# Teste Front-End - Teddy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um sistema de gerenciamento de clientes, desenvolvido em React + Vite + TypeScript, com layout responsivo, integração com API REST, modal dinâmico, paginação, seleção de múltiplos clientes e arquitetura preparada para microfrontends.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- Tela de login
+- Listagem de clientes paginada, com busca na API
+- Cadastro, edição, exclusão e seleção de clientes (CRUD + seleção múltipla)
+- Visualização de clientes selecionados
+- Layout responsivo, Sidebar/Topbar fixos
+- Estrutura de componentes reusáveis e service para integração backend
+- Pronto para deploy com Docker ou Vercel
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tecnologias
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [SASS/SCSS](https://sass-lang.com/)
+- [React Router Dom](https://reactrouter.com/)
+- [Axios](https://axios-http.com/)
+- [Docker](https://www.docker.com/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como rodar o projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### **1. Pré-requisitos**
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Node.js v18+ (ou superior)
+- NPM (ou Yarn/Pnpm)
+- Docker instalado (opcional, para rodar em container)
+- Backend/API disponível (consulte documentação/Swagger para endpoints e exemplos de retorno)
+
+---
+
+### **2. Rodando em modo desenvolvimento**
+
+Clone o projeto e instale as dependências:
+
+```bash
+git clone https://github.com/kevennfilps/teste-front-end.git
+cd teste-front-end
+npm install
+npm run dev
+
+- O projeto estará disponível em: http://localhost:5173/
