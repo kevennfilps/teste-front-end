@@ -1,5 +1,6 @@
 .login-outer {
   min-height: 100vh;
+  font-family: 'Maven Pro', sans-serif;
   min-width: 100vw;
   background: #fafafa;
   display: flex;

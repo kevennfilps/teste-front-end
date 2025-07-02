@@ -1,6 +1,7 @@
 .sidebar {
   position: fixed;
   left: 0;
+  font-family: 'Maven Pro', sans-serif;
   top: 0;
   width: 0;
   height: 100vh;
@@ -15,8 +16,8 @@
   align-items: flex-start;
   padding-top: 64px;
   &.open {
-    width: 220px;
-    min-width: 220px;
+    width: 230px;
+    min-width: 230px;
     padding-left: 0;
     box-shadow: 2px 0 12px rgba(0,0,0,0.03);
     z-index: 12344;
