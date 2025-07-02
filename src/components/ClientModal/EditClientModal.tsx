@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { updateClient, type Client } from "../../services/clientService";
 import "./ClientModal.scss";
-import { useNotification } from "../../contexts/notification/NotificationContext";
 
 interface EditClientModalProps {
   open: boolean;
@@ -16,7 +15,6 @@ export default function EditClientModal({ open, onClose, onSuccess, client }: Ed
   const [companyValuation, setCompanyValuation] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const { notify } = useNotification();
 
   useEffect(() => {
     if (client && open) {
@@ -43,11 +41,9 @@ export default function EditClientModal({ open, onClose, onSuccess, client }: Ed
         salary: Number(salary),
         companyValuation: Number(companyValuation),
       });
-      notify("Cliente editado com sucesso!", "info");
       onSuccess();
       onClose();
     } catch (err) {
-      notify("Erro ao editar cliente!", "error");
       setError("Erro ao editar cliente.");
     } finally {
       setLoading(false);
