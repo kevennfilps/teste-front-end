@@ -34,7 +34,6 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
             className={location.pathname === "/" ? "active" : ""}
             style={{ cursor: "pointer" }}
             onClick={() => {
-              navigate("/");
               onClose();
             }}
           >
