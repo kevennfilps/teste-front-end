@@ -14,14 +14,12 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
   return (
     <aside className={`sidebar${open ? " open" : ""}`}>
       <div className="sidebar-logo-block">
-        {open && (
           <img
             src="/logo.png"
             alt="teddy"
             style={{ height: 36 }}
             className="sidebar-logo-img"
           />
-        )}
       </div>
       <nav>
         {open && (
@@ -53,14 +51,14 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </li>
           <li
             className={location.pathname === "/clientes-selecionados" ? "active" : ""}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", marginLeft: -3 }}
             onClick={() => {
               navigate("/clientes-selecionados");
               onClose();
             }}
           >
             <FaUserCheck />
-            {open && <span>Clientes selecionados</span>}
+            {open && <span >Clientes Selecionados</span>}
           </li>
         </ul>
       </nav>
