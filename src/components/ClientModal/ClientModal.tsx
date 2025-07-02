@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createClient } from "../../services/clientService";
 import "./ClientModal.scss";
+import { useNotification } from "../../contexts/notification/NotificationContext";
 
 interface CreateClientModalProps {
   open: boolean;
@@ -14,6 +15,7 @@ export default function CreateClientModal({ open, onClose, onSuccess }: CreateCl
   const [companyValuation, setCompanyValuation] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { notify } = useNotification();
 
   if (!open) return null;
 
@@ -32,12 +34,14 @@ export default function CreateClientModal({ open, onClose, onSuccess }: CreateCl
         salary: Number(salary),
         companyValuation: Number(companyValuation),
       });
+      notify("Cliente criado com sucesso!", "success");
       setName("");
       setSalary("");
       setCompanyValuation("");
       onSuccess();
       onClose();
     } catch (err) {
+      notify("Erro ao criar cliente!", "error");
       setError("Erro ao cadastrar cliente.");
     } finally {
       setLoading(false);

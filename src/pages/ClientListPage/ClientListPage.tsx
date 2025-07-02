@@ -7,6 +7,7 @@ import CreateClientModal from "../../components/ClientModal/ClientModal";
 import EditClientModal from "../../components/ClientModal/EditClientModal";
 import ConfirmDeleteModal from "../../components/ConfirmDeleteModal/ConfirmDeleteModal";
 import { deleteClient } from "../../services/clientService";
+import { useNotification } from "../../contexts/notification/NotificationContext";
 
 export default function ClientListPage() {
   const [clients, setClients] = useState<Client[]>([]);
@@ -19,6 +20,7 @@ export default function ClientListPage() {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [clientToDelete, setClientToDelete] = useState<Client | null>(null);
   const [selectedClients, setSelectedClients] = useState<Client[]>([]);
+  const { notify } = useNotification();
 
   const pageSize = 12;
 
@@ -41,11 +43,13 @@ export default function ClientListPage() {
   };
 
   const handleOpenEditModal = (client: Client) => {
+    notify("Cliente editado com sucesso!", "info");
     setClientToEdit(client);
     setEditModalOpen(true);
   };
 
   const handleCreateSuccess = () => {
+    notify("Cliente criado com sucesso!", "success");
     refreshClients();
   };
 
@@ -61,6 +65,7 @@ export default function ClientListPage() {
   const handleDelete = async () => {
     if (clientToDelete) {
       await deleteClient(clientToDelete.id);
+      notify("Cliente excluído com sucesso!", "success");
       setDeleteModalOpen(false);
       setClientToDelete(null);
       refreshClients();
