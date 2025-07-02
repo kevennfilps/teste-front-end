@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@chakra-ui/layout": "^2.3.1",
@@ -35,11 +37,14 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^30.0.3",
+    "jest-environment-jsdom": "^30.0.2",
     "sass-embedded": "^1.89.2",
     "ts-jest": "^29.4.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.1",
+    "util": "^0.12.5",
     "vite": "^7.0.0"
   }
 }
